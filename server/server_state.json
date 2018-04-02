@@ -1,0 +1,17 @@
+[
+    {
+        "uniqueId": 55555,
+        "name": "3333",
+        "description": "44444"
+    },
+    {
+        "uniqueId": 123456789,
+        "name": "item name",
+        "description": "item description"
+    },
+    {
+        "uniqueId": 928374,
+        "name": "item 2",
+        "description": "item description 2"
+    }
+]
