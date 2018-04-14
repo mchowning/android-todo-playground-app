@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/task_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/task_title_edittext"
+        app:layout_constraintBottom_toBottomOf="@+id/task_title_edittext"
+        />
+
+    <TextView
+        android:id="@+id/task_description_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        app:layout_constraintTop_toTopOf="@+id/task_description_edittext"
+        app:layout_constraintBottom_toBottomOf="@+id/task_description_edittext"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="task_title_textview,task_description_textview"
+        />
+
+    <EditText
+        android:id="@+id/task_title_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/barrier"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="16dp"
+        />
+
+    <EditText
+        android:id="@+id/task_description_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/barrier"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task_title_edittext"
+        />
+
+</android.support.constraint.ConstraintLayout>
