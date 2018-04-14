@@ -16,7 +16,7 @@ class TaskListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        MainActivity.repository.data
+         MainActivity.repository.allTasks
                 .observe(this,
                         Observer { taskList ->
                             if (taskList != null) {

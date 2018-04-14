@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import android.widget.Toast
+import com.mattchowning.todo_mvp.room.TaskItem
 import kotlinx.android.synthetic.main.add_task_fragment.*
 
 class AddTaskFragment : Fragment() {
@@ -25,7 +26,7 @@ class AddTaskFragment : Fragment() {
         if (item?.itemId == R.id.menu_save) {
             Toast.makeText(context, "save button clicked", Toast.LENGTH_SHORT).show()
             val taskItem = TaskItem(task_title_edittext.text.toString(), task_description_edittext.text.toString())
-            MainActivity.repository.addItem(taskItem)
+            MainActivity.repository.insertItem(taskItem)
             fragmentManager?.popBackStack()
             return true
         }
