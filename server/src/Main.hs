@@ -34,7 +34,6 @@ instance Eq TodoItem where
 instance ToJSON TodoItem
 instance FromJSON TodoItem
 
-
 main :: IO ()
 main = do
   putStrLn "Starting server..."
@@ -50,6 +49,7 @@ main = do
       post "/post" $ do
         b <- body
         liftIO $ maybe (return ()) addItem (decode b)
+        file filename
 
     deleteEndpoint =
       -- delete "/delete/:unique_id" $ do
@@ -64,6 +64,7 @@ readSaved :: IO (Maybe [TodoItem])
 readSaved = decode <$> B.readFile filename
 
 saveItems :: [TodoItem] -> IO ()
+
 saveItems = B.writeFile filename . encodePretty
 
 -- deleteItem :: TodoItem -> IO ()
