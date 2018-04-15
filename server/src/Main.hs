@@ -18,10 +18,10 @@ import           GHC.Generics               (Generic)
 import           Web.Scotty                 (ScottyM, body, delete, file, get,
                                              json, param, post, scotty, text)
 
-type UniqueId = Integer
+type UniqueId = T.Text
 
 data TodoItem = TodoItem
-  { name        :: T.Text
+  { title        :: T.Text
   , description :: T.Text
   , uniqueId    :: UniqueId
   } deriving (Show, Generic)
@@ -57,6 +57,7 @@ main = do
       delete "/delete" $ do
         idToDelete <- param "id"
         liftIO $ deleteItem idToDelete
+        file filename
 
 filename = "server_state.json"
 
