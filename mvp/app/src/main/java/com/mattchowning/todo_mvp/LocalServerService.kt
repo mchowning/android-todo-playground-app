@@ -2,7 +2,9 @@ package com.mattchowning.todo_mvp
 
 import com.mattchowning.todo_mvp.room.TaskItem
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface LocalServerService {
 
@@ -13,4 +15,7 @@ interface LocalServerService {
 
     @GET("get")
     fun getItems(): Call<List<TaskItem>>
+
+    @POST("post")
+    fun insertItem(@Body taskItem: TaskItem): Call<List<TaskItem>>
 }

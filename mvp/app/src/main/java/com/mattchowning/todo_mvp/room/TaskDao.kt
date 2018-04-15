@@ -13,5 +13,5 @@ interface TaskDao {
     fun getAllTasks(): LiveData<List<TaskItem>>
 
     @Insert(onConflict = REPLACE)
-    fun insertItem(taskItem: TaskItem)
+    fun insertItems(vararg taskItem: TaskItem)
 }

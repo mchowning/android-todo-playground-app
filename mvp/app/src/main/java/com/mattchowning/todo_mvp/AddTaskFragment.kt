@@ -26,7 +26,7 @@ class AddTaskFragment : Fragment() {
         if (item?.itemId == R.id.menu_save) {
             Toast.makeText(context, "save button clicked", Toast.LENGTH_SHORT).show()
             val taskItem = TaskItem(task_title_edittext.text.toString(), task_description_edittext.text.toString())
-            MainActivity.repository.insertItem(taskItem)
+            MainActivity.repository.insertItems(taskItem)
             fragmentManager?.popBackStack()
             return true
         }
