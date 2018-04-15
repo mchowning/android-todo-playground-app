@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
-import com.mattchowning.todo_mvp.repository.Repository
+import com.mattchowning.todo.repository.Repository
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -32,4 +32,5 @@ class MainActivity : AppCompatActivity() {
             transaction?.commit()
         }
     }
+
 }

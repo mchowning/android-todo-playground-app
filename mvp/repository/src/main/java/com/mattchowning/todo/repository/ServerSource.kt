@@ -1,9 +1,8 @@
-package com.mattchowning.todo_mvp.repository
+package com.mattchowning.todo.repository
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import com.mattchowning.todo_mvp.LocalServerService
-import com.mattchowning.todo_mvp.room.TaskItem
+import com.mattchowning.todo.repository.room.TaskItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,7 +11,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 
-class ServerSource : RepositorySource {
+internal class ServerSource : RepositorySource {
 
     private val localMutable = MutableLiveData<List<TaskItem>>()
     override val allTasks: LiveData<List<TaskItem>> = localMutable

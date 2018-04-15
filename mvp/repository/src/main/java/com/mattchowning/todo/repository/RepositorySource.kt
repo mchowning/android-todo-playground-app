@@ -1,9 +1,9 @@
-package com.mattchowning.todo_mvp.repository
+package com.mattchowning.todo.repository
 
 import android.arch.lifecycle.LiveData
-import com.mattchowning.todo_mvp.room.TaskItem
+import com.mattchowning.todo.repository.room.TaskItem
 
-interface RepositorySource {
+internal interface RepositorySource {
 
     val allTasks: LiveData<List<TaskItem>>
 

@@ -1,10 +1,8 @@
-package com.mattchowning.todo_mvp.repository
+package com.mattchowning.todo.repository
 
 import android.arch.lifecycle.LiveData
 import android.content.Context
-import com.mattchowning.todo_mvp.repository.Repository.Source.LOCAL_DB
-import com.mattchowning.todo_mvp.repository.Repository.Source.USE_REMOTE
-import com.mattchowning.todo_mvp.room.TaskItem
+import com.mattchowning.todo.repository.room.TaskItem
 
 class Repository(context: Context) : RepositorySource {
 
@@ -12,11 +10,11 @@ class Repository(context: Context) : RepositorySource {
         USE_REMOTE,
         LOCAL_DB
     }
-    private val source = USE_REMOTE
+    private val source = Source.USE_REMOTE
 
     private val repositorySource = when (source) {
-        LOCAL_DB -> LocalDbSource(context)
-        USE_REMOTE -> ServerSource()
+        Source.LOCAL_DB -> LocalDbSource(context)
+        Source.USE_REMOTE -> ServerSource()
     }
 
     override val allTasks: LiveData<List<TaskItem>> = repositorySource.allTasks

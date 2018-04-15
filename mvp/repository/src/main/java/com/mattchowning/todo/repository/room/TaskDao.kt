@@ -1,4 +1,4 @@
-package com.mattchowning.todo_mvp.room
+package com.mattchowning.todo.repository.room
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
@@ -7,7 +7,7 @@ import android.arch.persistence.room.OnConflictStrategy.REPLACE
 import android.arch.persistence.room.Query
 
 @Dao
-interface TaskDao {
+internal interface TaskDao {
 
     @Query("SELECT * from task_table")
     fun getAllTasks(): LiveData<List<TaskItem>>

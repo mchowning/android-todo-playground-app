@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import android.widget.Toast
-import com.mattchowning.todo_mvp.room.TaskItem
+import com.mattchowning.todo.repository.room.TaskItem
 import kotlinx.android.synthetic.main.add_task_fragment.*
 
 class AddTaskFragment : Fragment() {

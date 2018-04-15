@@ -1,4 +1,4 @@
-package com.mattchowning.todo_mvp.room
+package com.mattchowning.todo.repository.room
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
