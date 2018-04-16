@@ -1,17 +1,22 @@
 [
     {
-        "uniqueId": 55555,
-        "name": "3333",
+        "uniqueId": "0c624bb8-b958-4c80-a1fc-605712e2a9ca",
+        "title": "remote",
+        "description": "remote"
+    },
+    {
+        "uniqueId": "55555",
+        "title": "3333",
         "description": "44444"
     },
     {
-        "uniqueId": 123456789,
-        "name": "item name",
+        "uniqueId": "123456789",
+        "title": "item name",
         "description": "item description"
     },
     {
-        "uniqueId": 928374,
-        "name": "item 2",
+        "uniqueId": "928374",
+        "title": "item 2",
         "description": "item description 2"
     }
 ]
