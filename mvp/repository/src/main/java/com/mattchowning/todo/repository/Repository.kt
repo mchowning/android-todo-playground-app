@@ -4,22 +4,13 @@ import android.arch.lifecycle.LiveData
 import android.content.Context
 import com.mattchowning.todo.repository.room.TaskItem
 
-class Repository(context: Context) : RepositorySource {
+interface Repository {
 
-    private enum class Source {
-        USE_REMOTE,
-        LOCAL_DB
-    }
-    private val source = Source.USE_REMOTE
+  val allTasks: LiveData<List<TaskItem>>
 
-    private val repositorySource = when (source) {
-        Source.LOCAL_DB -> LocalDbSource(context)
-        Source.USE_REMOTE -> ServerSource()
-    }
+  fun insertItems(vararg taskItems: TaskItem)
 
-    override val allTasks: LiveData<List<TaskItem>> = repositorySource.allTasks
-
-    override fun insertItems(vararg taskItems: TaskItem) {
-        repositorySource.insertItems(*taskItems)
-    }
+  companion object {
+    fun get(context: Context): Repository = RepositorySwitcher(context)
+  }
 }

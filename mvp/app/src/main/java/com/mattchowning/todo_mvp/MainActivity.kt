@@ -5,32 +5,38 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import com.mattchowning.todo.repository.Repository
-import timber.log.Timber
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Timber.plant(Timber.DebugTree())
+  @Inject lateinit var repository: Repository
 
+  override fun onCreate(savedInstanceState: Bundle?) {
+    AndroidInjection.inject(this)
+    checkNotNull(repository)
 
-        setContentView(R.layout.activity_main)
-        replaceFragment(TaskListFragment(), supportFragmentManager, false)
+    super.onCreate(savedInstanceState)
 
-        repository = Repository(this)
+    setContentView(R.layout.activity_main)
+    replaceFragment(TaskListFragment(), supportFragmentManager, false)
+
+//    repository = RepositorySwitcher(this)
+  }
+
+  companion object {
+//    lateinit var repository: RepositorySwitcher
+
+    fun replaceFragment(fragment: Fragment,
+                        fragmentManager: FragmentManager?,
+                        toBackstack: Boolean) {
+      checkNotNull(fragmentManager)
+      checkNotNull(fragment)
+      val transaction = fragmentManager?.beginTransaction()
+                                       ?.replace(R.id.contentFrame, fragment)
+      if (toBackstack) transaction?.addToBackStack(fragment::class.toString())
+      transaction?.commit()
     }
-
-    companion object {
-        lateinit var repository: Repository
-
-        fun replaceFragment(fragment: Fragment, fragmentManager: FragmentManager?, toBackstack: Boolean) {
-            checkNotNull(fragmentManager)
-            checkNotNull(fragment)
-            val transaction = fragmentManager?.beginTransaction()
-                           ?.replace(R.id.contentFrame, fragment)
-            if (toBackstack) transaction?.addToBackStack(fragment::class.toString())
-            transaction?.commit()
-        }
-    }
+  }
 
 }

@@ -6,5 +6,5 @@ import java.util.*
 
 @Entity(tableName = "task_table")
 data class TaskItem(val title: String,
-                    val description : String,
-                    @PrimaryKey val uniqueId : String = UUID.randomUUID().toString())
+                    val description: String,
+                    @PrimaryKey val uniqueId: String = UUID.randomUUID().toString())

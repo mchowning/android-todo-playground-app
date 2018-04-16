@@ -10,24 +10,24 @@ import java.util.*
 
 class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.TaskItemViewHolder>() {
 
-    var taskItems: List<TaskItem> = Collections.emptyList()
+  var taskItems: List<TaskItem> = Collections.emptyList()
 
-    class TaskItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(item: TaskItem) = with(itemView) {
-            titleTextView.text = item.title
-            descriptionTextView.text = item.description
-            uniqueIdTextView.text = item.uniqueId.toString()
-        }
+  class TaskItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    fun bind(item: TaskItem) = with(itemView) {
+      titleTextView.text = item.title
+      descriptionTextView.text = item.description
+      uniqueIdTextView.text = item.uniqueId.toString()
     }
+  }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.task_list_row, parent, false)
-        return TaskItemViewHolder(v)
-    }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskItemViewHolder {
+    val v = LayoutInflater.from(parent.context).inflate(R.layout.task_list_row, parent, false)
+    return TaskItemViewHolder(v)
+  }
 
-    override fun getItemCount(): Int = taskItems.size
+  override fun getItemCount(): Int = taskItems.size
 
-    override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
-        holder.bind(taskItems[position])
-    }
+  override fun onBindViewHolder(holder: TaskItemViewHolder, position: Int) {
+    holder.bind(taskItems[position])
+  }
 }

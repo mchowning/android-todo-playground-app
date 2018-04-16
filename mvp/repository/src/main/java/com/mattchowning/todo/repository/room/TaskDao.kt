@@ -9,9 +9,9 @@ import android.arch.persistence.room.Query
 @Dao
 internal interface TaskDao {
 
-    @Query("SELECT * from task_table")
-    fun getAllTasks(): LiveData<List<TaskItem>>
+  @Query("SELECT * from task_table")
+  fun getAllTasks(): LiveData<List<TaskItem>>
 
-    @Insert(onConflict = REPLACE)
-    fun insertItems(vararg taskItem: TaskItem)
+  @Insert(onConflict = REPLACE)
+  fun insertItems(vararg taskItem: TaskItem)
 }
