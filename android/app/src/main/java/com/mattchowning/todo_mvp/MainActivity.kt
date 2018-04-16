@@ -21,12 +21,9 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
     replaceFragment(TaskListFragment(), supportFragmentManager, false)
 
-//    repository = RepositorySwitcher(this)
   }
 
   companion object {
-//    lateinit var repository: RepositorySwitcher
-
     fun replaceFragment(fragment: Fragment,
                         fragmentManager: FragmentManager?,
                         toBackstack: Boolean) {
